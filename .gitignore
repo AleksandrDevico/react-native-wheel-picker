@@ -1,4 +1,14 @@
-android/build
+# Android/IntelliJ
+#
+build/
+.idea
+.gradle
+local.properties
 *.iml
-android/.idea/workspace.xml
-android/.idea/copyright/profiles_settings.xml
+keystore.properties
+
+# node.js
+#
+node_modules/
+npm-debug.log
+yarn-error.log

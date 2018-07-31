@@ -1,11 +1,15 @@
 apply plugin: 'com.android.library'
 
+def DEFAULT_COMPILE_SDK_VERSION     = 23
+def DEFAULT_BUILD_TOOLS_VERSION     = "23.0.1"
+def DEFAULT_TARGET_SDK_VERSION      = 22
+
 android {
-    compileSdkVersion 23
-    buildToolsVersion "23.0.1"
+    compileSdkVersion project.hasProperty('compileSdkVersion') ? project.compileSdkVersion : DEFAULT_COMPILE_SDK_VERSION
+    buildToolsVersion project.hasProperty('buildToolsVersion') ? project.buildToolsVersion : DEFAULT_BUILD_TOOLS_VERSION
     defaultConfig {
         minSdkVersion 16
-        targetSdkVersion 22
+        targetSdkVersion hasProperty('targetSdkVersion') ? project.targetSdkVersion : DEFAULT_TARGET_SDK_VERSION
         versionCode 1
         versionName "1.0"
         ndk {
@@ -16,6 +20,6 @@ android {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile "cn.aigestudio.wheelpicker:WheelPicker:1.0.3"
+    compile 'cn.aigestudio.wheelpicker:WheelPicker:1.1.2'
     compile 'com.facebook.react:react-native:+'
 }
